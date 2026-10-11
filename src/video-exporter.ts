@@ -713,6 +713,7 @@ export async function exportPNGSequence(
 
   const width = doc.width;
   const height = doc.height;
+  console.log('FLA document size:', width, height)
   const totalFrames = Math.max(1, endFrame - startFrame);
 
   // Create offscreen canvas for rendering

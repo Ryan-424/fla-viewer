@@ -711,9 +711,21 @@ export async function exportPNGSequence(
     padLength = 5
   } = options;
 
-  const width = doc.width;
-  const height = doc.height;
-  console.log('FLA document size:', width, height)
+/  const width = doc.width;
+ // const height = doc.height;
+  const width = Math.floor(Number(doc.width));
+const height = Math.floor(Number(doc.height));
+
+if (
+  !Number.isFinite(width) ||
+  !Number.isFinite(height) ||
+  width <= 0 ||
+  height <= 0
+) {
+  throw new Error(
+    `Invalid document dimensions: ${doc.width}x${doc.height}`
+  );
+})
   const totalFrames = Math.max(1, endFrame - startFrame);
 
   // Create offscreen canvas for rendering
